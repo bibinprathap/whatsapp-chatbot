@@ -32,9 +32,7 @@
   Address
   <img alt="Address" title="Address" src="./assets/image1.png" />
   Bill
-  <img alt="Bill" title="Bill" src="./assets/image4.png" />
-  Assistant
-  <img alt="Assistant" title="Assistant" src="./assets/assistant.png" />
+  <img alt="Bill" title="Bill" src="./assets/image4.png" /> 
 </h1>
 
 ### Prerequisites
