@@ -7,8 +7,7 @@
     <a href="https://nodejs.org/en/">🔗 NodeJS</a>
     <a href="https://www.npmjs.com/package/venom-bot">🧠 Venom Bot</a>
 </h1>
-<p align="center">
-    https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot
+<p align="center"> 
 <img alt="stars" title="stars" src="https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot" />
 <img alt="issues" title="issues" src="https://img.shields.io/github/issues/bibinprathap/whatsapp-chatbot" />
 <img alt="forks" title="forks" src="https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot" />
