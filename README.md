@@ -57,6 +57,7 @@ $ yarn dev
 The following tools were used in the construction of the project:
 
 - [Node.js](https://nodejs.org/en/)
+https://img.shields.io/github/issues/bibinprathap/whatsapp-chatbot
 
 ### Author
 
