@@ -45,10 +45,10 @@ Also, it's nice to have an editor to work with code like[VSCode](https://code.vi
 
 ```bash
 # Clone this repository
-$ git clone git@github.com:juniorwmr/botwhatsapp-venom.git
+$ git clone git@github.com:bibinprathap/whatsapp-chatbot.git
 
 # Access the project folder in the terminal/cmd
-$ cd botwhatsapp-venom
+$ cd whatsapp-chatbot
 
 # install dependencies
 $ npm install
