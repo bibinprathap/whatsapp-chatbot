@@ -74,7 +74,7 @@ The following tools were used in the construction of the project:
 
 Done with ❤️ by Bibin Prathap 👋🏽 !
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Connect with me: +971 569245365</h3>
 <p align="left">
 <a href="https://linkedin.com/in/bibin-prathap-4a34a489" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="bibin-prathap-4a34a489" height="30" width="40" /></a>
 <a href="https://stackoverflow.com/users/6724770/bibin-prathap" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="6724770/bibin-prathap" height="30" width="40" /></a>
