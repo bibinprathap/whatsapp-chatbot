@@ -13,8 +13,9 @@
 <img alt="forks" title="forks" src="https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot" />
 <img alt="stars" title="stars" src="https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot" />
 <img alt="license" title="license" src="https://img.shields.io/github/license/bibinprathap/whatsapp-chatbot" />
-<img alt="stars" title="stars" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fadroitclouderp.com%2Ffull-stack-developer%2Freact-node-js" />
-
+<a href="https://linkedin.com/in/bibin-prathap-4a34a489/">
+<img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue">
+</a>
 
 </p>
 <p align="center">🚀 Project created in order to assist in the demands of orders from  customers  via WhatsApp.
