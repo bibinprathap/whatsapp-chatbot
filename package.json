@@ -9,6 +9,6 @@
     "dev": "node src/server.js"
   },
   "dependencies": {
-    "venom-bot": "^3.0.18"
+   "venom-bot": "^5.0.20"
   }
 }
