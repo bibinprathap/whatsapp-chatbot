@@ -1,7 +1,9 @@
 import { create } from 'venom-bot';
 import { stages, getStage } from './stages.js';
 
-create().then((client) => start(client));
+ create({
+        session: 'session-name' //name of session
+    }).then((client) => start(client));
 
 async function start(client) {
   await client.onMessage(async (message) => {
