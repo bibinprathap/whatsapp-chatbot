@@ -1,6 +1,5 @@
 # Whatsapp Bot  
-#  Demo [wa.me/917994671704](http://wa.me/917994671704)
-[![HitCount](https://hits.dwyl.com/bibinprathap/whatsapp-chatbot.svg?style=flat-square)](http://hits.dwyl.com/bibinprathap/whatsapp-chatbot)
+#  Demo [wa.me/917994671704](http://wa.me/917994671704) 
 #  contact me for support +971569245365
 # Thanks for Checking Out This Project! 🚀
 
