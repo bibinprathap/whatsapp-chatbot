@@ -2,6 +2,22 @@
 #  Demo [wa.me/917994671704](http://wa.me/917994671704)
 
 #  contact me for support +971569245365
+# Thanks for Checking Out This Project! 🚀
+
+If you find this project helpful or interesting, I’d really appreciate it if you could ⭐ **star the repository** — it helps others discover the work and supports the project's growth.
+
+## Want More? 🔥
+
+As a token of appreciation, I'm offering access to a **private advanced version** of this repo that includes:
+- [AI Agent Whatsapp](https://github.com/bibinprathap/AI-Agent-whatsapp)
+ 
+
+### How to Get Access:
+1. ⭐ Star this repository
+2. [Send me a message][wa.me/917994671704](http://wa.me/917994671704)
+
+Thanks again for your support! 🙏  
+Let’s keep building great things together.
 
 ## Project description
 
