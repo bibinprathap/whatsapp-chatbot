@@ -9,7 +9,20 @@ If you find this project helpful or interesting, I’d really appreciate it if y
 
 As a token of appreciation, I'm offering access to a **private advanced version** of this repo that includes:
 - [AI Agent Whatsapp](https://github.com/bibinprathap/AI-Agent-whatsapp)
+ ![Whatsapp](Whatsapp.png) 
+
  
+# AI Agent for WhatsApp 🤖💬
+
+An AI-powered WhatsApp agent that leverages advanced natural language processing to provide intelligent responses and automate conversations.
+
+## Features ✨
+
+- **Natural Language Understanding**: Processes user messages with AI comprehension
+- **Automated Responses**: Provides instant replies to common queries
+- **Context Awareness**: Maintains conversation context for more natural interactions
+- **Multi-language Support**: Communicates in various languages
+- **Easy Integration**: Simple setup with WhatsApp Business API
 
 ### How to Get Access:
 1. ⭐ Star this repository
