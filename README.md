@@ -9,7 +9,7 @@ If you find this project helpful or interesting, I’d really appreciate it if y
 
 As a token of appreciation, I'm offering access to a **private advanced version** of this repo that includes:
 - [AI Agent Whatsapp](https://github.com/bibinprathap/AI-Agent-whatsapp)
- ![Whatsapp](Whatsapp.png) 
+ ![Whatsapp](Whatsapp.png)  
 
  
 # AI Agent for WhatsApp 🤖💬
