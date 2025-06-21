@@ -5,32 +5,6 @@
 
 If you find this project helpful or interesting, I’d really appreciate it if you could ⭐ **star the repository** — it helps others discover the work and supports the project's growth.
 
-## Want More? 🔥
-
-As a token of appreciation, I'm offering access to a **private advanced version** of this repo that includes:
-- [AI Agent Whatsapp](https://github.com/bibinprathap/AI-Agent-whatsapp)
- ![Whatsapp](Whatsapp.png)  
-
- 
-# AI Agent for WhatsApp 🤖💬
-
-An AI-powered WhatsApp agent that leverages advanced natural language processing to provide intelligent responses and automate conversations.
-
-## Features ✨
-
-- **Natural Language Understanding**: Processes user messages with AI comprehension
-- **Automated Responses**: Provides instant replies to common queries
-- **Context Awareness**: Maintains conversation context for more natural interactions
-- **Multi-language Support**: Communicates in various languages
-- **Easy Integration**: Simple setup with WhatsApp Business API
-
-### How to Get Access:
-1. ⭐ Star this repository
-2. [Send me a message][wa.me/917994671704](http://wa.me/917994671704)
-
-Thanks again for your support! 🙏  
-Let’s keep building great things together.
-
 ## Project description
 
 <p align="center"></p>
@@ -98,6 +72,27 @@ The following tools were used in the construction of the project:
 
 - [Node.js](https://nodejs.org/en/)
  
+
+## Want More? 🔥 
+- [AI Agent Whatsapp](https://github.com/bibinprathap/AI-Agent-whatsapp)
+ ![Whatsapp](Whatsapp.png)  
+
+ 
+# AI Agent for WhatsApp 🤖💬
+
+An AI-powered WhatsApp agent that leverages advanced natural language processing to provide intelligent responses and automate conversations.
+
+## Features ✨
+
+- **Natural Language Understanding**: Processes user messages with AI comprehension
+- **Automated Responses**: Provides instant replies to common queries
+- **Context Awareness**: Maintains conversation context for more natural interactions
+- **Multi-language Support**: Communicates in various languages
+- **Easy Integration**: Simple setup with WhatsApp Business API
+
+ 
+Thanks again for your support! 🙏  
+Let’s keep building great things together.
 
 
 ### Author
