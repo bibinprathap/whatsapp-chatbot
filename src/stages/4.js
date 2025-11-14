@@ -1,13 +1,15 @@
-import { storage } from '../storage.js';
+import { setState } from '../storage.js';
 
 export const stageFour = {
-  exec({ from, message }) {
-    const address = storage[from].address;
+  exec({ from, message, state }) {
+    const address = state.address;
     const phone = from.split('@');
 
-    storage[from].stage = 5;
+    state.stage = 5;
+    setState(from, state);
+
     let desserts = '';
-    const itens = storage[from].itens;
+    const itens = state.itens;
     itens.map((item, index) => {
       if (index == itens.length - 1) {
         desserts += item.description + '.';
@@ -15,7 +17,7 @@ export const stageFour = {
         desserts += item.description + ', ';
       }
     });
-    const total = storage[from].itens.length;
+    const total = state.itens.length;
 
     return `🔔 *NEW REQUEST*🔔: \n\n📞 Client: +${
       phone[0]

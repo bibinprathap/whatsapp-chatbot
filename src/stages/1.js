@@ -1,9 +1,9 @@
 import { menu } from '../menu.js';
-import { storage } from '../storage.js';
+import { setState } from '../storage.js';
 import { neighborhoods } from './neighborhoods.js';
 
 export const stageOne = {
-  exec({ from, message, client }) {
+  exec({ from, message, client, state }) {
     if (message === '1') {
       let msg = '🚨  MENU  🚨\n\n';
 
@@ -24,7 +24,8 @@ export const stageOne = {
 
       msg +=
         '\nTo view the cakes, *acesse*: https://wa.me/c/556884257619\n\n⚠️ ```ONLY ONE OPTION AT A TIME``` ⚠️\n*Enter OPTION referring to the product you want to order:*';
-      storage[from].stage = 2;
+      state.stage = 2;
+      setState(from, state);
 
       return msg;
     } else if (message === '2') {
@@ -36,7 +37,8 @@ export const stageOne = {
     } else if (message === '0') {
       client.markUnseenMessage(from);
 
-      storage[from].stage = 5;
+      state.stage = 5;
+      setState(from, state);
 
       return '🔃 Forwarding you to an attendant. \n⏳ *Wait a minute*.';
     }
