@@ -1,4 +1,4 @@
-import { setState } from '../storage.js';
+import { setState } from "../storage.js";
 
 /**
  * Abandoned Cart Recovery (ACR) Stage
@@ -9,18 +9,18 @@ export const acrStage = {
     // User responds to abandoned cart message
     // Check if they want to continue or cancel
 
-    if (message === '*') {
+    if (message === "*") {
       // Cancel - reset to initial stage
       state.stage = 0;
       state.itens = [];
-      state.address = '';
+      state.address = "";
       setState(from, state);
-      return '🔴 Order canceled. Starting fresh!\n\n1️⃣ - ```MAKE A WISH``` \n2️⃣ - ```CHECK DELIVERY RATE```\n0️⃣ - ```TALK TO ATTENDANT```';
+      return "🔴 Order canceled. Starting fresh!\n\n1️⃣ - ```MAKE A WISH``` \n2️⃣ - ```CHECK DELIVERY RATE```\n0️⃣ - ```TALK TO ATTENDANT```";
     }
 
-    // User wants to continue with checkout
+    // User wants to continue with checkouta
     state.stage = 2;
     setState(from, state);
-    return 'Great! You can continue your order. Type #️⃣ to finish or *️⃣ to cancel.';
+    return "Great! You can continue your order. Type #️⃣ to finish or *️⃣ to cancel.";
   },
 };

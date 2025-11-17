@@ -1,7 +1,7 @@
-import Database from 'better-sqlite3';
+import Database from "better-sqlite3";
 
-const db = new Database('botwhatsapp.db', { verbose: console.log });
-db.pragma('journal_mode = WAL');
+const db = new Database("botwhatsapp.db", { verbose: console.log });
+db.pragma("journal_mode = WAL");
 
 const createTable = `
 CREATE TABLE IF NOT EXISTS user_state (
@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS user_state (
 `;
 
 db.exec(createTable);
-console.log('Database initialized.');
+console.log("Database initialized.");
 
 export { db };
