@@ -5,9 +5,10 @@ import {
   stageThree,
   stageFour,
   finalStage,
+  acrStage,
 } from './stages/index.js';
 
-import { storage } from './storage.js';
+import { getState, setState } from './storage.js';
 
 export const stages = [
   {
@@ -34,18 +35,12 @@ export const stages = [
     descricao: 'Assistent',
     stage: finalStage,
   },
+  {
+    descricao: 'Abandoned Cart Recovery',
+    stage: acrStage,
+  },
 ];
 
-export function getStage({ from }) {
-  if (storage[from]) {
-    return storage[from].stage;
-  } else {
-    storage[from] = {
-      stage: 0,
-      itens: [],
-      address: '',
-    };
-
-    return storage[from].stage;
-  }
+export function getState_wrapper({ from }) {
+  return getState(from);
 }
