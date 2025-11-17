@@ -84,6 +84,8 @@ Version 6.6.0 offers stable support for QR code authentication, message handling
   <img alt="Address" title="Address" src="./assets/image1.png" />
   Bill
   <img alt="Bill" title="Bill" src="./assets/image4.png" /> 
+    save this in the database
+  <img alt="Welcome" title="Welcome" src="./assets/whatsapp%20db.jpg" />
 </h1>
 
 ### Prerequisites
