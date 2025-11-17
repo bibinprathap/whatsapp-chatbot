@@ -8,6 +8,19 @@
 If you find this project helpful or interesting, I’d really appreciate it if you could ⭐ **star the repository** — it helps others discover the work and supports the project's growth.
 
 ## Project description
+WhatsApp Chatbot 🤖
+A Node.js WhatsApp chatbot using Baileys, SQLite, and cron jobs for automated order handling and customer support.
+
+## Features
+- **WhatsApp connection via Baileys**
+- **QR code login in terminal**
+- **Persistent user state with SQLite**
+- **Multi-stage conversation flow**
+- **Automated abandoned cart reminders**
+- **Easy setup and deployment**
+
+- @whiskeysockets/baileys is a powerful Node.js library for building WhatsApp bots and clients. It provides a simple, event-driven API to connect, send/receive messages, manage sessions, and automate WhatsApp interactions using the multi-device protocol.
+Version 6.6.0 offers stable support for QR code authentication, message handling, media, and group management, making it ideal for chatbot and automation projects.
 
 <p align="center"></p>
 <h1 align="center">
