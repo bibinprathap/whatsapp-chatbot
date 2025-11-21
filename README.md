@@ -1,3 +1,125 @@
+# WhatsApp Commerce Chatbot
+
+![GitHub stars](https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bibinprathap/whatsapp-chatbot?style=flat-square)
+![GitHub license](https://img.shields.io/github/license/bibinprathap/whatsapp-chatbot?style=flat-square)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/bibinprathap/whatsapp-chatbot)
+
+> Automate dessert shop, D2C, or storefront sales on WhatsApp with a Baileys-powered workflow that keeps carts, reminders, and delivery details in sync through SQLite and cron-driven retention loops.
+
+
+
+## Why this repository matters
+
+The WhatsApp automation niche is crowded with sticker bots and one-off experiments. This project targets the revenue-focused segment: **WhatsApp Commerce**. The codebase already handles persistent carts, staged menus, and abandoned-cart remarketing. This README now doubles as a high-conversion landing page, clarifying the value for founders, maintainers, and prospective contributors.
+
+## Feature snapshot
+
+- Multi-device WhatsApp connection via `@whiskeysockets/baileys` (no Chrome dependency)
+- Persistent carts, addresses, and timestamps stored with `better-sqlite3`
+- Stage router (`src/stages/*.js`) for deterministic menu flows and recovery journeys
+- Cron-driven abandoned cart nudges every 10 minutes (`src/cron_jobs.js`)
+- Ready-to-fork documentation bundle (CODE_EXPLANATION, QUICK_REFERENCE, TROUBLESHOOTING)
+- Token-based auth state stored under `./tokens/session-name` for fast reconnects
+
+## Competitive value matrix
+
+| Capability | whatsapp-chatbot | WhatsApp Business API | Generic chatbot SaaS |
+|------------|------------------|-----------------------|----------------------|
+| Cost | Free / self-hosted | Per-conversation billing | Subscription or per-seat |
+| Setup time | Under 10 minutes (QR scan) | Weeks (verification + approval) | 1-3 days (vendor onboarding) |
+| Custom logic | Full Node.js access, cron hooks, SQLite | Template-based | Limited UI flows |
+| Data ownership | Stay on your VPS / local machine | Meta hosted | Vendor hosted |
+| Deployment targets | Local dev, Docker, Railway, VPS | Meta approved vendors only | Provider only |
+
+## Documentation at a glance
+
+| Read first | Why |
+|-----------|-----|
+| [`CODE_EXPLANATION.md`](./CODE_EXPLANATION.md) | Full architecture tour, stage-by-stage walkthrough |
+| [`QUICK_REFERENCE.md`](./QUICK_REFERENCE.md) | Copy-paste snippets, DB queries, deployment cheatsheet |
+| [`TROUBLESHOOTING.md`](./TROUBLESHOOTING.md) | Venom vs Baileys issues, alternative stacks |
+| [`INTEGRATION_GUIDE.md`](./INTEGRATION_GUIDE.md) | Phase summaries, schema, refactor notes |
+
+## Demo flow
+
+| Welcome | Menu | Order | Address | Bill |
+|---------|------|-------|---------|------|
+| ![Welcome](./assets/image6.jpg) | ![Menu](./assets/image5.png) | ![Order](./assets/image2.png) | ![Address](./assets/image3.png) | ![Bill](./assets/image4.png) |
+
+## Quick start (local)
+
+Requirements: Node.js 18+, npm, Git, SQLite (bundled with `better-sqlite3`).
+
+```bash
+git clone https://github.com/bibinprathap/whatsapp-chatbot.git
+cd whatsapp-chatbot
+npm install
+npm run dev
+```
+
+1. Scan the QR printed in the terminal with WhatsApp on your phone.
+2. Chat from the paired device; the bot replies instantly.
+3. `botwhatsapp.db` stores user sessions, carts, and timestamps in the repo root.
+
+## Deploy to Railway (2-minute cloud demo)
+
+1. Click the **Deploy on Railway** button above.
+2. Create a Railway account (free tier works for tests).
+3. When prompted, set environment variables if you override defaults (e.g., `SESSION_NAME`, custom cron interval).
+4. Deploy, open the logs tab, and scan the QR rendered there.
+
+Railway auto-builds Node.js apps. Be mindful of idle timeouts on free tiers; persistent production workloads should move to a VPS or container platform.
+
+## Configuration & project internals
+
+| File | Responsibility |
+|------|----------------|
+| `src/server.js` | Bootstraps Baileys, prints QR, manages reconnection strategy |
+| `src/storage.js` | `getState` / `setState` helpers to abstract SQLite access |
+| `src/stages.js` + `src/stages/*` | Stage registry; each stage exports `exec` to mutate state and send replies |
+| `src/cron_jobs.js` | `node-cron` schedule that finds carts stuck in stages 2-3 and sends recovery nudges |
+| `src/menu.js` | Customizable catalog mapped to numeric choices |
+| `botwhatsapp.db` | Auto-created SQLite database using WAL mode for concurrent reads |
+
+Default settings:
+
+- Auth tokens live under `./tokens/session-name`. Delete the folder to force a new login.
+- Cron job interval defaults to `*/10 * * * *` (run every 10 minutes).
+- Abandoned cart detection triggers after 1 hour of inactivity; tweak `ONE_HOUR_AGO` inside `src/cron_jobs.js` as needed.
+
+## Strategic growth roadmap
+
+1. **Hero README**: Ship this conversion-focused landing page with badges, demo assets, and clear CTAs.
+2. **One-click deploy**: Railway template link provided; keep Docker instructions in backlog for VPS users.
+3. **Awesome list outreach**: Target niche lists (`awesome-whatsapp`, `awesome-ecommerce-tools`) once the star count threshold is met.
+4. **Ecosystem tagging**: Use repo topics such as `baileys`, `whatsapp-md`, `ecommerce-bot` to match high-intent searches.
+5. **Community loop**: Spin up Discord + WhatsApp Channel for support; funnel repetitive issues away from GitHub and convert grateful users into stargazers.
+6. **Gamified contributions**: Label `good first issue`, add `CONTRIBUTING.md`, and maintain a welcoming CODE_OF_CONDUCT to encourage pull requests.
+7. **Content marketing**: Publish companion tutorials on Dev.to/Hashnode and short YouTube walkthroughs linking back here.
+8. **Launch moments**: Plan coordinated "Show HN" and Product Hunt launches once the one-click deploy flow is ironed out.
+9. **Visual branding**: Update GitHub social preview art plus promo cards for LinkedIn/Twitter; include logos for WhatsApp + Node.js.
+10. **AI alignment**: Document ongoing or planned ChatGPT/OpenAI integrations (intent understanding, smart replies) to ride the LLM wave.
+
+This roadmap turns a functioning bot into a growth engine by aligning docs, deployment, and distribution.
+
+## Community & support
+
+- Demo line: [wa.me/917994671704](http://wa.me/917994671704)
+- Creator: [Bibin Prathap](https://linkedin.com/in/bibin-prathap-4a34a489) — reach out for consulting (+971 569245365)
+- Issues: please include logs, stage number, and reproduction steps when opening GitHub issues
+- Contributions: fork the repo, branch from `master`, run tests locally, and open a PR referencing the context doc you used (e.g., `CODE_EXPLANATION.md`)
+
+## License
+
+MIT License — see [`LICENSE`](./LICENSE). Commercial projects are welcome; attribution via a star is appreciated.
+
+---
+
+If this project helps you launch or learn, **please star the repository** so more founders and engineers can discover it.
+
 # 📚 Documentation Index & Quick Navigation
 
 > **🎯 NEW TO THIS PROJECT?** Start here: [**CODE_EXPLANATION.md**](./CODE_EXPLANATION.md)
@@ -148,4 +270,6 @@ Done with ❤️ by Bibin Prathap 👋🏽 !
 <h3 align="left">Support:</h3>
 <p><a href="https://www.buymeacoffee.com/bibinprathap"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="bibinprathap" /></a></p><br><br>
 <a href="https://experttutorshub.com/" target="blank">experttutorshub.com</a>
+
+
 
