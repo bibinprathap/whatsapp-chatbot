@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   makeWASocket,
   useMultiFileAuthState,
@@ -6,6 +7,7 @@ import {
 import { stages } from "./stages.js";
 import { getState, setState } from "./storage.js";
 import { startCronJobs } from "./cron_jobs.js";
+import { processNaturalLanguage } from "./nlp/index.js";
 import Pino from "pino";
 import qrcode from "qrcode-terminal";
 
@@ -83,6 +85,23 @@ async function start() {
 
         const state = getState(from);
 
+        // 🤖 Try Natural Language processing first (AI-powered ordering)
+        const nlResult = await processNaturalLanguage({
+          from,
+          message: text,
+          client,
+          state,
+        });
+
+        if (nlResult?.handled) {
+          // NL processor handled the message
+          if (nlResult.response) {
+            await client.sendMessage(from, { text: nlResult.response });
+          }
+          continue;
+        }
+
+        // Fall back to traditional stage-based routing
         const messageResponse = stages[state.stage].stage.exec({
           from,
           message: text,

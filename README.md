@@ -1,28 +1,69 @@
-# WhatsApp Commerce Chatbot
+# 🤖 WhatsApp AI Sales Agent
 
 ![GitHub stars](https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/bibinprathap/whatsapp-chatbot?style=flat-square)
 ![GitHub license](https://img.shields.io/github/license/bibinprathap/whatsapp-chatbot?style=flat-square)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Powered-412991?style=flat-square&logo=openai)](https://openai.com)
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/bibinprathap/whatsapp-chatbot)
 
-> Automate dessert shop, D2C, or storefront sales on WhatsApp with a Baileys-powered workflow that keeps carts, reminders, and delivery details in sync through SQLite and cron-driven retention loops.
+> **The First Open-Source AI Sales Agent for WhatsApp.** Convert natural language messages to SQLite orders instantly using LLM-powered intent recognition.
+
+## ✨ NEW: Natural Language Ordering (NL-to-Cart)
+
+**Say goodbye to rigid menu navigation!** Customers can now type orders naturally:
+
+```
+"I want 2 milks and an apple delivered to Downtown Dubai"
+```
+
+The AI instantly parses this into a structured cart and responds with a confirmation — **skipping the menu stages entirely**.
+
+| Traditional Flow | AI-Powered Flow |
+|-----------------|-----------------|
+| Send "1" → View Menu → Send "1" → Add item → Send "#" → Enter address → Confirm | Just type your order naturally → Done ✅ |
+
+### 🎯 How It Works
+
+```
+User: "Send me 2 apples and some sugar to Marina Walk"
+           ↓
+    [LLM Intent Classifier]
+           ↓
+    { items: [{id: 2, qty: 2}, {id: 3, qty: 1}], address: "Marina Walk" }
+           ↓
+    [Direct Cart Injection]
+           ↓
+Bot: "🛒 ORDER CONFIRMED VIA AI 🤖
+      📦 Items: 2x Apple, 1x Sugar
+      💰 Subtotal: 18 reais
+      📍 Address: Marina Walk
+      ✅ Order placed successfully!"
+```
 
 
 
 ## Why this repository matters
 
-The WhatsApp automation niche is crowded with sticker bots and one-off experiments. This project targets the revenue-focused segment: **WhatsApp Commerce**. The codebase already handles persistent carts, staged menus, and abandoned-cart remarketing. This README now doubles as a high-conversion landing page, clarifying the value for founders, maintainers, and prospective contributors.
+The WhatsApp automation niche is crowded with sticker bots and one-off experiments. This project targets the revenue-focused segment: **WhatsApp Commerce** with **AI-native ordering**. 
+
+### 🚀 Key Differentiators
+
+- **LLM-Powered NL-to-Cart**: OpenAI function calling converts natural language to structured orders
+- **Hybrid Architecture**: AI handles complex orders; traditional flows remain for simple navigation
+- **Privacy-First Options**: Swap OpenAI for Ollama (local LLM) with minimal code changes
+- **Zero Menu Friction**: Customers order in their own words, not your menu's structure
 
 ## Feature snapshot
 
-- Multi-device WhatsApp connection via `@whiskeysockets/baileys` (no Chrome dependency)
-- Persistent carts, addresses, and timestamps stored with `better-sqlite3`
-- Stage router (`src/stages/*.js`) for deterministic menu flows and recovery journeys
-- Cron-driven abandoned cart nudges every 10 minutes (`src/cron_jobs.js`)
-- Ready-to-fork documentation bundle (CODE_EXPLANATION, QUICK_REFERENCE, TROUBLESHOOTING)
-- Token-based auth state stored under `./tokens/session-name` for fast reconnects
+- 🤖 **AI Natural Language Ordering** — Type "2 milks and an apple" → instant cart creation
+- 📱 Multi-device WhatsApp connection via `@whiskeysockets/baileys` (no Chrome dependency)
+- 💾 Persistent carts, addresses, and timestamps stored with `better-sqlite3`
+- 🔄 Stage router (`src/stages/*.js`) for deterministic menu flows and recovery journeys
+- ⏰ Cron-driven abandoned cart nudges every 10 minutes (`src/cron_jobs.js`)
+- 📚 Ready-to-fork documentation bundle (CODE_EXPLANATION, QUICK_REFERENCE, TROUBLESHOOTING)
+- 🔑 Token-based auth state stored under `./tokens/session-name` for fast reconnects
 
 ## Competitive value matrix
 
@@ -57,12 +98,27 @@ Requirements: Node.js 18+, npm, Git, SQLite (bundled with `better-sqlite3`).
 git clone https://github.com/bibinprathap/whatsapp-chatbot.git
 cd whatsapp-chatbot
 npm install
+
+# Enable AI ordering (optional but recommended)
+cp .env.example .env
+# Edit .env and add your OpenAI API key
+
 npm run dev
 ```
 
 1. Scan the QR printed in the terminal with WhatsApp on your phone.
 2. Chat from the paired device; the bot replies instantly.
-3. `botwhatsapp.db` stores user sessions, carts, and timestamps in the repo root.
+3. **Try AI ordering**: Send "I want 2 apples and a milk" — watch the magic! 🪄
+4. `botwhatsapp.db` stores user sessions, carts, and timestamps in the repo root.
+
+### 🔑 Environment Variables
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `OPENAI_API_KEY` | For AI features | - | Your OpenAI API key |
+| `OPENAI_MODEL` | No | `gpt-4o-mini` | Model to use (cost vs quality) |
+
+> **💡 No API key?** The bot works perfectly with traditional menu navigation. AI features gracefully degrade.
 
 ## Deploy to Railway (2-minute cloud demo)
 
@@ -77,12 +133,49 @@ Railway auto-builds Node.js apps. Be mindful of idle timeouts on free tiers; per
 
 | File | Responsibility |
 |------|----------------|
-| `src/server.js` | Bootstraps Baileys, prints QR, manages reconnection strategy |
+| `src/server.js` | Bootstraps Baileys, prints QR, manages reconnection strategy, **intercepts messages for AI processing** |
+| `src/nlp/index.js` | 🆕 Natural Language processor entry point |
+| `src/nlp/openai.js` | 🆕 OpenAI function calling integration |
+| `src/nlp/parser.js` | 🆕 Cart builder and order summary generator |
 | `src/storage.js` | `getState` / `setState` helpers to abstract SQLite access |
 | `src/stages.js` + `src/stages/*` | Stage registry; each stage exports `exec` to mutate state and send replies |
 | `src/cron_jobs.js` | `node-cron` schedule that finds carts stuck in stages 2-3 and sends recovery nudges |
 | `src/menu.js` | Customizable catalog mapped to numeric choices |
 | `botwhatsapp.db` | Auto-created SQLite database using WAL mode for concurrent reads |
+
+## 🧠 AI Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     MESSAGE FLOW                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  User Message                                                    │
+│       │                                                          │
+│       ▼                                                          │
+│  ┌─────────────┐    No    ┌──────────────────┐                  │
+│  │ Pre-filter  │ ────────▶│ Stage Router     │                  │
+│  │ (Keywords)  │          │ (Traditional)    │                  │
+│  └─────────────┘          └──────────────────┘                  │
+│       │ Yes                                                      │
+│       ▼                                                          │
+│  ┌─────────────────────────────────────────┐                    │
+│  │      OpenAI Function Calling            │                    │
+│  │  ┌─────────────────────────────────┐   │                    │
+│  │  │ Tools:                          │   │                    │
+│  │  │  • create_order(items, address) │   │                    │
+│  │  │  • not_an_order(reason)         │   │                    │
+│  │  └─────────────────────────────────┘   │                    │
+│  └─────────────────────────────────────────┘                    │
+│       │                                                          │
+│       ▼                                                          │
+│  ┌─────────────┐          ┌──────────────────┐                  │
+│  │ Build Cart  │ ────────▶│ Update SQLite    │                  │
+│  │ & Summary   │          │ Skip to Stage 3/4│                  │
+│  └─────────────┘          └──────────────────┘                  │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 Default settings:
 
