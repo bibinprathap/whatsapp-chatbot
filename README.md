@@ -42,6 +42,16 @@ Bot: "🛒 ORDER CONFIRMED VIA AI 🤖
       ✅ Order placed successfully!"
 ```
 
+### 🎬 See It In Action
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1EPBKhqbQstKg0wngGRXAisXbQhwLKOa3/view?usp=sharing">
+    <img src="./assets/ai-demo-preview.png" alt="AI Natural Language Ordering Demo" width="600"/>
+  </a>
+  <br/>
+  <em>👆 Click to watch: Customer types "I want 2 milks and an apple" → AI instantly creates the cart!</em>
+</p>
+
 
 
 ## Why this repository matters
